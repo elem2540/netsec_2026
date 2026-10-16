@@ -41,7 +41,7 @@ def process_command(command):
 
 
 def handle_client(conn, addr):
-    print(f"Client connesso: {addr}")
+    print(f"Client connected: {addr}")
 
     buffer = b""
 
@@ -68,9 +68,9 @@ def handle_client(conn, addr):
                         (response + "\n").encode("ascii")
                     )
     except OSError as e:
-        print(f"Errore client {addr}: {e}")
+        print(f"Client error {addr}: {e}")
 
-    print(f"Client disconnesso: {addr}")
+    print(f"Client disconnected: {addr}")
 
 
 if __name__ == "__main__":
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         server.bind((HOST, PORT))
         server.listen()
 
-        print(f"Server in ascolto su {HOST}:{PORT}")
+        print(f"Server listening on {HOST}:{PORT}")
 
         while True:
             conn, addr = server.accept()
